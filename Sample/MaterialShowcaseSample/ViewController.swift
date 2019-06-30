@@ -29,7 +29,6 @@ class ViewController: UIViewController {
     showcase.primaryText = "Action 1"
     showcase.secondaryText = "Click here to go into details"
     showcase.show(completion: {
-      _ in
       // You can save showcase state here
     })
   }
@@ -49,7 +48,6 @@ class ViewController: UIViewController {
     // Delegate to handle other action after showcase is dismissed.
     showcase.delegate = self
     showcase.show(completion: {
-      _ in
       // You can save showcase state here
     })
   }
@@ -86,9 +84,9 @@ extension ViewController: UITableViewDataSource {
 // If you need handle other actions (i.e: show other showcase), you can implement MaterialShowcaseDelegate
 extension ViewController: MaterialShowcaseDelegate {
   func showCaseWillDismiss(showcase: MaterialShowcase) {
-    print("Showcase \(showcase.primaryText) will dismiss.")
+    print("Showcase \(showcase.primaryText ?? "") will dismiss.")
   }
   func showCaseDidDismiss(showcase: MaterialShowcase) {
-    print("Showcase \(showcase.primaryText) dimissed.")
+    print("Showcase \(showcase.primaryText ?? "") dimissed.")
   }
 }
